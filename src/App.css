@@ -1,0 +1,45 @@
+ul>li{
+  width: 18%;
+  font-size: 1em;
+}
+ul>li:hover{
+  font-size: 1.1em;
+}
+input[type="radio"] {
+  accent-color: rgb(12, 189, 95); 
+}
+input[type="checkbox"] {
+  accent-color: rgb(12, 189, 95); 
+}
+.login-container,.signin-container{
+  font-family: 'Poppins', sans-serif;
+}
+.login-box,.signin-box input::placeholder{
+  font-family: 'Poppins', sans-serif;
+}
+
+@media screen and (min-width: 400px) and (max-width:640px) {
+  .login-box,.signin-box{
+    width: 300px !important;
+  }
+  form{
+    font-size: 1em !important;
+  }
+  
+}
+
+@media screen and (min-width: 200px) and (max-width:400px) {
+  .login-box,.signin-box{
+    width: 300px !important;
+  }
+  form{
+    font-size: 0.7em !important;
+  }
+  ul>li{
+  width: 20%;
+  font-size: 0.7em;
+}
+ul>li:hover{
+  font-size: 0.8em;
+}
+}
