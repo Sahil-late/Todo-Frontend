@@ -154,7 +154,7 @@ function Home() {
         theme="light"
         transition={Bounce}
       />
-      <nav className="flex h-12 px-2 w-full justify-between items-center bg-amber-400 ">
+      <nav className="flex h-12 px-2 w-full justify-between items-center bg-red-400 ">
         <div className="text-2xl font-light">
           TodoSaver
         </div>
