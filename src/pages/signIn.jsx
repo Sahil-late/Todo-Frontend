@@ -6,6 +6,8 @@ import { ToastContainer, toast, Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import API_BASE_URL from "../config";
+
 
 
 const SignIn = () => {
@@ -38,7 +40,7 @@ const SignIn = () => {
         const credentials = { username, email, password, re_password };
         setdata(credentials);
         if (data.length !== 0) {
-            await axios.post('http://localhost:3000/signIn', {
+            await axios.post(`${API_BASE_URL}/signIn`, {
                 credentials
             }).then((res) => {
                 toast.success(<div className='text-[12px] text-amber-100'>{res.data.message}</div>, {

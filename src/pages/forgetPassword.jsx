@@ -6,6 +6,8 @@ import { ToastContainer, toast, Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import API_BASE_URL from "../config";
+
 
 const ForgetPassword = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -20,7 +22,7 @@ const ForgetPassword = () => {
     const rePassword = form[2].value;
 
     if (password !== rePassword) return alert("Passwords do not match!");
-    axios.post('http://localhost:3000/changePassword', { email, newPassword: password })
+    axios.post(`${API_BASE_URL}/changePassword`, { email, newPassword: password })
       .then((res) => {
         let message = res.data.message;
         toast.success(<div className='text-[14px]'>{message}</div>, {

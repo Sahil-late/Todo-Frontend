@@ -6,6 +6,8 @@ import Home from '../components/home';
 import axios from 'axios';
 import { ToastContainer, toast, Bounce } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+import API_BASE_URL from "../config";
+
 
 const Login = () => {
     const navigate = useNavigate();
@@ -17,7 +19,7 @@ const Login = () => {
         const email = form[0].value;
         const password = form[1].value;
         const credentials = { email, password };
-        await axios.post('http://localhost:3000/login', {
+        await axios.post(`${API_BASE_URL}/login`, {
             credentials
         }).then((res) => {
             if (res.data[0] === 'Login successfuly') {
