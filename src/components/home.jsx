@@ -8,6 +8,7 @@ import Login from "../pages/login";
 import axios from "axios";
 import { ToastContainer, toast, Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import API_BASE_URL from "../config";
 
 function Home() {
   const [todo, setTodo] = useState('')
@@ -16,7 +17,7 @@ function Home() {
 
   useEffect(() => {
     let username = localStorage.getItem('username')
-    axios.post('http://localhost:3000/todos', { username })
+    axios.post(`${API_BASE_URL}/todos`, { username })
       .then((res) => {
         let data = res.data.todos
         let completed = data.filter((todo) => todo.done === true)
@@ -50,7 +51,7 @@ function Home() {
       setTodos(data)
       setTodo('')
       let username = localStorage.getItem('username')
-      axios.post('http://localhost:3000/add', { todos: data, username })
+      axios.post(`${API_BASE_URL}/add`, { todos: data, username })
         .then((res) => {
           let todos = res.data.todos
           setTodos(todos)
@@ -87,7 +88,7 @@ function Home() {
     let username = localStorage.getItem('username')
     const newTodos = todos.filter((item) => item.id !== id)
     let checkId = checkedArr.filter(item => item.id !== id)
-    axios.post('http://localhost:3000/delete', { checkId, newTodos, username })
+    axios.post(`${API_BASE_URL}/delete`, { checkId, newTodos, username })
     .then((res)=>{
       toast(<div className="flex gap-4 capitalize"><img className="invert" height={14} width={18} src="delete.gif" alt="" />{res.data.message}
           </div>, {
@@ -120,7 +121,7 @@ function Home() {
     }
     let newtodos = todos.map(prevTodos => prevTodos, [...checked])
     setTodos(newtodos);
-    axios.post('http://localhost:3000/checked', { username, todos: newtodos })
+    axios.post(`${API_BASE_URL}/checked`, { username, todos: newtodos })
     .then((res)=>{
       toast.success(<div className="capitalize">{res.data.message}
           </div>, {
