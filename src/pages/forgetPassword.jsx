@@ -72,7 +72,7 @@ const ForgetPassword = () => {
                 transition={Bounce}
             />
       <h1 className='text-center py-4 text-2xl text-green-100 [-webkit-text-stroke:1px_brown]'>Change Password</h1>
-      <div className='h-[70vh] flex items-center'>
+      <div className='h-[70dvh] flex items-center'>
         <form action="" onSubmit={(data) => { handleSubmit(data) }} className='h-fit w-[70vw] mx-auto rounded-md p-4 text-amber-50 flex flex-col items-center'>
           <div className='flex flex-col gap-5 w-[100%] sm:w-[400px] text-white bg-[rgba(0,0,0,0.4)] p-6 rounded-md border border-amber-100 mb-5 '>
             <input className='outline-none py-1 border-amber-50 border-b-2' type="email" name="" id="" placeholder='Enter E-mail' required />
