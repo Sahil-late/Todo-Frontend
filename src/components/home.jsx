@@ -14,6 +14,8 @@ function Home() {
   const [todo, setTodo] = useState('')
   const [todos, setTodos] = useState([])
   const [checkedArr, setCheckedArr] = useState([]);
+  console.log(checkedArr);
+  
 
   useEffect(() => {
     let username = localStorage.getItem('username')
@@ -26,8 +28,6 @@ function Home() {
         setTodos(data)
       })
   }, [])
-
-
 
   const handleAdd = () => {
     const data = [...todos, { id: uuidv4(), todo: todo, done: false }]
@@ -117,7 +117,7 @@ function Home() {
     let checked = todos.filter(item => item.id === id)
     checked[0].done = true
     if (!checkedArr.includes(id)) {
-      setCheckedArr([...checkedArr, id]);
+      setCheckedArr([...checkedArr, ...checked]);
     }
     let newtodos = todos.map(prevTodos => prevTodos, [...checked])
     setTodos(newtodos);
@@ -189,7 +189,7 @@ function Home() {
               <div className="flex justify-center" key={item.id}>
                 <div className="w-[300px] flex gap-4 justify-between items-center border-2 border-amber-400 m-1.5 rounded-[10px] bg-gray-900 p-2">
                   <div className="flex gap-2">
-                    <input onClick={() => handleChecked(item.id)} type="radio" checked={item.done} id="" />
+                    <input onChange={() => handleChecked(item.id)} type="radio" checked={item.done} id="" />
                     <div className={`w-[200px] overflow-x-auto text-amber-500 ${item.done ? 'line-through decoration-white' : ''}`}>{item.todo}</div>
                   </div>
                   <div className="flex gap-2.5">

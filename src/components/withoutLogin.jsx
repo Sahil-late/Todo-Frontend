@@ -12,6 +12,9 @@ const WithoutLogin = () => {
   const [todos, setTodos] = useState([])
   const [done, setDone] = useState([])
 
+  console.log(done);
+  
+
   useEffect(() => {
     const todos = JSON.parse(localStorage.getItem('todos'))
     const done = JSON.parse(localStorage.getItem('done'))
@@ -86,13 +89,15 @@ const WithoutLogin = () => {
   const handleCheck = (id) => {
     let check = todos.find((todo) => todo.id === id)
     check.done = true
-    setDone([...done, check])
+    setDone([...done,check])
     saveTols()
   }
 
   const handleEdit = (id) => {
     let del = todos.filter((todos) => todos.id !== id)
     let set = todos.find((todos) => todos.id === id)
+    let completed = done.filter((todos) => todos.id !== id)
+    setDone(completed)
     setTodo(set.todo)
     setTodos(del)
     toast.success('Todo Deleted Successfuly', {
@@ -106,10 +111,13 @@ const WithoutLogin = () => {
       theme: "light",
       transition: Bounce,
     });
+    saveTols()
   }
 
   const handleDelete = (id) => {
     let del = todos.filter((todos) => todos.id !== id)
+    let completed = done.filter((todos) => todos.id !== id)
+    setDone(completed)
     setTodos(del)
     toast.success('Todo Deleted Successfuly', {
       position: "top-right",
@@ -122,7 +130,6 @@ const WithoutLogin = () => {
       theme: "light",
       transition: Bounce,
     });
-    saveTols()
   }
 
   return (
