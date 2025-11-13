@@ -164,7 +164,7 @@ function Home() {
           </Link>
         </div>
       </nav>
-      <div className="app h-[calc(100vh-48px)] bg-black">
+      <div className="app h-[calc(100dvh-48px)] bg-black">
         <div className='w-[100vw] flex justify-center p-5'>
           <div className="w-[300px] flex justify-evenly items-center border-2 border-gray-400 bg-amber-950 text-amber-50 p-4 rounded-2xl">
             <div className="heading"><h1 className='font-bold text-xl'>Todo Done</h1> <span>keep it up</span>
