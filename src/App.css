@@ -32,9 +32,6 @@ input[type="checkbox"] {
   .login-box,.signin-box{
     width: 300px !important;
   }
-  form{
-    font-size: 0.7em !important;
-  }
   ul>li{
   width: 20%;
   font-size: 0.7em;
