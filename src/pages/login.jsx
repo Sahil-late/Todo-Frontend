@@ -87,7 +87,7 @@ const Login = () => {
             <div className='login-container text-amber-50 h-[100dvh] flex flex-col justify-center items-center gap-5 bg-[url("https://i.pinimg.com/originals/aa/dd/6f/aadd6f1d4873462c32bc0b19b0044297.jpg")] bg-cover bg-center'>
                 <div className='login-box flex flex-col gap-5 p-5 bg-[rgba(0,0,0,0.3)] shadow-md shadow-gray-800 rounded-md w-[240px] sm:w-[350px]'>
                     <h1 className='text-center text-4xl'>Login</h1>
-                    <form className='sm:text-[1em]' onSubmit={(data) => handleSubmit(data)} >
+                    <form className='text-red-500' onSubmit={(data) => handleSubmit(data)} >
                         <div className='flex flex-col gap-1'>
                             <input className='outline-0 border-b-2' type="email" placeholder='Email' required onKeyDown={(event) => {
                                 if (event.key === 'Enter') {
